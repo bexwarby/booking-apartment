@@ -1,13 +1,14 @@
-import logo from './logo.svg';
+import { apartment } from './data.js';
+import Room from './components/Room.js';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Beautiful apartment next to Parc Estienne d'Orves in Nice.
         </p>
         <a
           className="App-link"
@@ -15,9 +16,21 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Find Out More
         </a>
       </header>
+
+      <h1>The Apartment</h1>
+
+      {apartment.map(room => (
+        <Room
+          key={room.id}
+          name={room.name}
+          description={room.description}
+          image={room.image}
+        />
+      ))}
+
     </div>
   );
 }
