@@ -1,31 +1,47 @@
 import Nav from './components/Nav.js';
 import Home from './pages/Home.js';
+import Park from './pages/Park.js';
+import Rates from './pages/Rates.js';
+import Contact from './pages/Contact.js';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
 
+  /* fetch('http://localhost:8000/')
+    .then(response => response.json())
+    .then(data => console.log(data)); */
+
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Beautiful apartment next to Parc Estienne d'Orves in Nice.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Find Out More
-        </a>
-      </header>
-
-      <Nav />
-
-      <Home />
-
+      <Router>
+        <Nav />
+        <Routes>
+          {/* Home route via App */}
+          <Route exact path="/" element={<Home />} />
+          {/* Park page route */}
+          <Route path="/park" element={<Park />} />
+          {/* Rates page routes */}
+          <Route path="/rates" element={<Rates />} />
+          {/* Contact page route */}
+          <Route path="/contact" element={<Contact />} />
+          {/* No match route */}
+          <Route
+            path="*"
+            element={
+              <main style={{ padding: "1rem" }}>
+                <Nav />
+                <p>There's nothing here!</p>
+              </main>
+            }
+          />
+        </Routes>
+      </Router>
     </div>
   );
 }

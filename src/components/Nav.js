@@ -1,7 +1,7 @@
 import "../App.css";
 import logo from "../logo.svg";
 
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Nav() {
     return (
@@ -15,7 +15,7 @@ function Nav() {
                     <ul className="navbar-nav">
                         <img src={logo} className="App-logo" alt="logo" />
                         {/* Home link */}
-                        <NavLink
+                        <Link
                             to="/"
                             style={({ isActive }) => {
                                 return {
@@ -27,9 +27,9 @@ function Nav() {
                             className="hover nav-link"
                         >
                             Home
-                        </NavLink>
+                        </Link>
                         {/* Park link */}
-                        <NavLink
+                        <Link
                             to="/park"
                             style={({ isActive }) => {
                                 return {
@@ -41,9 +41,9 @@ function Nav() {
                             className="hover nav-link"
                         >
                             Park
-                        </NavLink>
+                        </Link>
                         {/* Rates link */}
-                        <NavLink
+                        <Link
                             to="/rates"
                             style={({ isActive }) => {
                                 return {
@@ -55,9 +55,9 @@ function Nav() {
                             className="hover nav-link"
                         >
                             Rates
-                        </NavLink>
+                        </Link>
                         {/* Contact link */}
-                        <NavLink
+                        <Link
                             to="/contact"
                             style={({ isActive }) => {
                                 return {
@@ -69,7 +69,7 @@ function Nav() {
                             className="hover nav-link"
                         >
                             Contact
-                        </NavLink>
+                        </Link>
 
                     </ul>
                 </div>
